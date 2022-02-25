@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление статьи</title>
+</head>
+<body>
+<table>
+<form action="#" th:action="@{/create}" th:object="${article}" method="post">
+    <label for="title">Название статьи</label>
+    <br>
+    <input type="text" th:field="*{title}" id="title" placeholder="Название статьи">
+    <br>
+    <label for="text">Содержание</label>
+    <br>
+    <textarea th:field="*{text}" id="text" cols="50" rows="10" placeholder="Введите текст...">Ввод...</textarea>
+    <br>
+    <input type="submit" value="Опубликовать">
+</form>
+</table>
+</body>
+</html>

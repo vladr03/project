@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name='description' content="Описание страницы">
+    <title>Articles</title>
+</head>
+<body>
+<h1>Меню</h1>
+<table>
+    <thead>
+    <tr>
+        <th align="center">Id</th>
+        <th align="center">Название статьи</th>
+        <th align="center">Содержимое</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="article : ${articles}">
+        <td align="center" th:text="${article.id}"></td>
+        <td align="center" th:text="${article.title}"></td>
+        <td align="center" th:text="${article.text}"></td>
+        <td><a th:href="@{article-update/{id}(id=${article.id})}" style="text-decoration: none;">Редактировать содержимое</a></td>
+        <td><a th:href="@{article-delete/{id}(id=${article.id})}" style="text-decoration: none;">Удалить</a></td>
+    </tr>
+    </tbody>
+</table>
+<form action="/create" target="_blank">
+    <button>Добавить статью</button>
+</form>
+</body>
+</html>
